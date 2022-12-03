@@ -3,7 +3,7 @@ import { Theme } from 'react-daisyui';
 import { useGlobalState } from '../contexts/StateContext';
 import TopNav from './global/TopNav';
 import VideoEditorContainer from './videoEditor/VideoEditorContainer';
-import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
+import { createFFmpeg } from '@ffmpeg/ffmpeg';
 import Loading from './global/Loading';
 
 const MainContainer = () => {

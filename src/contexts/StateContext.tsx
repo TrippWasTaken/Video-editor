@@ -1,33 +1,37 @@
-import * as React from "react" //Gets rid of TS error
-import { createContext, useState } from "react";
+import * as React from 'react'; //Gets rid of TS error
+import { createContext, useState } from 'react';
 
 interface globalState {
-  theme: string,
-  videoFile: any
+  theme: string;
+  videoFiles: any;
 }
 
 // @ts-ignore
-export const StateContext = createContext()
+export const StateContext = createContext();
 
 const StateContextProvider = (props: any) => {
-  const [theme, setTheme] = useState('dracula')
-  const [videoFile, setVideoFile] = useState()
+  const [theme, setTheme] = useState('dracula');
+  const [videoFiles, setVideoFiles] = useState<any[]>([]);
 
+  const addMedia = videos => {
+    console.log(videos);
+
+    setVideoFiles(current => [...current, ...videos]);
+  };
   const state: globalState = {
     theme,
-    videoFile
-  }
+    videoFiles
+  };
 
   const actions = {
     setTheme,
-    setVideoFile
-  }
+    setVideoFiles,
+    addMedia
+  };
 
-  return (
-    <StateContext.Provider value={{state, actions}}>{props.children}</StateContext.Provider>
-  )
-}
+  return <StateContext.Provider value={{ state, actions }}>{props.children}</StateContext.Provider>;
+};
 
-export const useGlobalState = ():any => React.useContext(StateContext)
+export const useGlobalState = (): any => React.useContext(StateContext);
 
-export default StateContextProvider
+export default StateContextProvider;

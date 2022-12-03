@@ -10,7 +10,7 @@ const VideoEditorContainer = () => {
     <>
       <Split style={{ height: '100%', width: '100%' }} direction="vertical" gutterSize={5} sizes={[60, 40]}>
         <div className="bg-base-100">
-          <Split className="flex" style={{ height: '100%' }} gutterSize={5} sizes={[30, 50, 20]}>
+          <Split className="flex control-split" style={{ height: '100%' }} gutterSize={5} sizes={[30, 50, 20]}>
             <MediaBorwser />
             <VideoPlayer />
             <AudioTab />

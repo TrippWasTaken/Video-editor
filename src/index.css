@@ -30,3 +30,17 @@ code {
 .gutter.gutter-vertical {
   cursor: row-resize
 }
+
+.split {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.constrol-split {
+  overflow: auto;
+}
+
+/* .overflow-control {
+  overflow: auto;
+} */
