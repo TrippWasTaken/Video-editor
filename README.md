@@ -1,15 +1,15 @@
-# 🚀 Welcome to your new awesome project!
+# :100: WASMffmpeg and React clipping tool
 
-This project has been created using **webpack-cli**, you can now run
+WIP tool to trim video clips and export them. I dont actually know anything about ffmpeg but I guess this will be a learning experience
 
-```
-npm run build
-```
+planned functionality:
 
-or
-
-```
-yarn build
-```
-
-to bundle your application
+ - Import multiple clips
+ - trim start and end points
+ - audio tracks with volume control
+ 
+ if you wish to try the app, use the usual npm commands
+ ```
+ npm install
+ npm start run
+ ```
