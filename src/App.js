@@ -1,11 +1,12 @@
 import './App.css';
-import Container from './screens/main/MainContainer';
+import StateContextProvider from './contexts/StateContext';
+import MainContainer from './screens/MainContainer';
 
 function App() {
   return (
-    <div className="App">
-      <Container />
-    </div>
+    <StateContextProvider>
+      <MainContainer />
+    </StateContextProvider>
   );
 }
 
