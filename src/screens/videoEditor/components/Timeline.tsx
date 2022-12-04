@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useGlobalState } from '../../../contexts/StateContext';
 
 export const Timeline = () => {
-  return (
-    <div>Timeline</div>
-  )
-}
+  const {
+    state: { workingFile }
+  } = useGlobalState();
+  return <div>Timeline</div>;
+};

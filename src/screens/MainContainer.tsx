@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Theme } from 'react-daisyui';
+import { Button, Modal, Theme } from 'react-daisyui';
 import { useGlobalState } from '../contexts/StateContext';
 import TopNav from './global/TopNav';
 import VideoEditorContainer from './videoEditor/VideoEditorContainer';
@@ -10,7 +10,8 @@ const MainContainer = () => {
   const [ready, setReady] = useState(false);
   const ffmpeg = createFFmpeg({ log: true });
   const {
-    state: { theme }
+    state: { theme, confirmModal },
+    actions: { setConfirmModal }
   } = useGlobalState();
 
   const loadFFmpeg = async () => {
@@ -27,6 +28,30 @@ const MainContainer = () => {
     <Theme dataTheme={theme}>
       <Loading hide={ready} />
       <div className="h-screen">
+        <Modal open={confirmModal.visible}>
+          <Modal.Header className="font-bold">Hold up!</Modal.Header>
+          <Modal.Body>{confirmModal.message}</Modal.Body>
+          <Modal.Actions>
+            <Button
+              color="primary"
+              onClick={() => {
+                confirmModal.onConfirm();
+                setConfirmModal({ visible: false, onConfirm: () => {}, message: '' });
+              }}
+            >
+              Ok
+            </Button>
+            <Button
+              color="secondary"
+              variant="outline"
+              onClick={() => {
+                setConfirmModal({ visible: false, onConfirm: () => {}, message: '' });
+              }}
+            >
+              Cancel
+            </Button>
+          </Modal.Actions>
+        </Modal>
         <TopNav />
         <VideoEditorContainer />
       </div>
