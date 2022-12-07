@@ -1,13 +1,13 @@
 import React from 'react';
 import { v4 } from 'uuid';
-import { useGlobalState } from '../../../contexts/StateContext';
+import { useMediaState } from '../../../contexts/mediaContext';
 import NothingHere from '../../global/NothingHere';
 import MediaItem from './MediaItem';
 
 const MediaList = () => {
   const {
     state: { videoFiles }
-  } = useGlobalState();
+  } = useMediaState();
   return (
     <div className="overflow-y-auto">
       {videoFiles === null || videoFiles?.length === 0 ? (

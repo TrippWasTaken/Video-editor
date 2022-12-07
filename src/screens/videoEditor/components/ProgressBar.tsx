@@ -1,10 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { Progress } from 'react-daisyui';
 
-const ProgressBar = ({ progress }) => {
-  useEffect(() => {
-    console.log(progress);
-  }, [progress]);
+const ProgressBar = ({ progressRef }) => {
+  const [progress, setProgress] = useState(0);
+  const [listener, setListener] = useState(false);
+
+  if (progressRef != null && !listener) {
+    console.log(progressRef);
+    progressRef.ontimeupdate = e => {
+      if (isNaN(e.target.duration)) return;
+      setProgress((e.target.currentTime / e.target.duration) * 100);
+    };
+    setListener(true);
+  }
 
   return <Progress color="primary" value={progress} max={100} />;
 };

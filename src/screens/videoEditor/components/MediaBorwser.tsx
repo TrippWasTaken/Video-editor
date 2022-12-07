@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
 import { Button, Divider } from 'react-daisyui';
 import { IoAddOutline } from 'react-icons/io5';
-import { useGlobalState } from '../../../contexts/StateContext';
+import { useMediaState } from '../../../contexts/mediaContext';
 import MediaList from './MediaList';
 
 export const MediaBorwser = () => {
   const mediaBtnRef: any = useRef();
   const {
     actions: { addMedia }
-  } = useGlobalState();
+  } = useMediaState();
 
   const inputMedia = e => {
     if (e.files || e.files.length > 1) {
