@@ -1,6 +1,6 @@
 import React from 'react';
 import { v4 } from 'uuid';
-import { useMediaState } from '../../../contexts/mediaContext';
+import { useMediaState } from '../../../contexts/MediaContext';
 import NothingHere from '../../global/NothingHere';
 import MediaItem from './MediaItem';
 

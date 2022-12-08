@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import { Button, Divider } from 'react-daisyui';
 import { IoAddOutline } from 'react-icons/io5';
-import { useMediaState } from '../../../contexts/mediaContext';
+import { useMediaState } from '../../../contexts/MediaContext';
 import MediaList from './MediaList';
 
-export const MediaBorwser = () => {
+const MediaBrowser = () => {
   const mediaBtnRef: any = useRef();
   const {
     actions: { addMedia }
@@ -53,3 +53,5 @@ export const MediaBorwser = () => {
     </div>
   );
 };
+
+export default MediaBrowser;

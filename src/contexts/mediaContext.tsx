@@ -8,7 +8,6 @@ const MediaContextProvider = (props: any) => {
   const [videoFiles, setVideoFiles] = useState<any[]>([]);
 
   const addMedia = videos => {
-    console.log(videos);
     setVideoFiles(current => [...current, ...videos]);
   };
 

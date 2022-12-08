@@ -3,18 +3,28 @@ import { Progress } from 'react-daisyui';
 
 const ProgressBar = ({ progressRef }) => {
   const [progress, setProgress] = useState(0);
-  const [listener, setListener] = useState(false);
 
-  if (progressRef != null && !listener) {
-    console.log(progressRef);
+  if (progressRef != null) {
     progressRef.ontimeupdate = e => {
       if (isNaN(e.target.duration)) return;
       setProgress((e.target.currentTime / e.target.duration) * 100);
     };
-    setListener(true);
   }
 
-  return <Progress color="primary" value={progress} max={100} />;
+  const setCustomPosition = e => {
+    const elementWidth = e.target.getBoundingClientRect();
+    const xClick = (e.clientX - elementWidth.left) / elementWidth.width;
+    progressRef.currentTime = xClick * progressRef.duration;
+  };
+  return (
+    <Progress
+      className="hover:cursor-pointer"
+      color="primary"
+      value={progress}
+      max={100}
+      onClick={e => setCustomPosition(e)}
+    />
+  );
 };
 
 export default ProgressBar;
