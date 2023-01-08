@@ -6,13 +6,19 @@ export const VideoRefContext = createContext();
 
 const VideoRefContextProvider = (props: any) => {
   const [videoRef, setVideoRef] = useState(null);
+  const [track, setVideoTrack] = useState(false);
+  const [audioTrack, setAudioTrack] = useState(null);
 
   const state = {
-    videoRef
+    videoRef,
+    track,
+    audioTrack
   };
 
   const actions = {
-    setVideoRef
+    setVideoRef,
+    setVideoTrack,
+    setAudioTrack
   };
 
   return <VideoRefContext.Provider value={{ state, actions }}>{props.children}</VideoRefContext.Provider>;

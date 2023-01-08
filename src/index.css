@@ -55,3 +55,19 @@ code {
   width: 100%;
   height: 100%;
 }
+
+.timeline-area-a {
+  grid-column: 1;
+}
+
+.timeline-area-b {
+  grid-column: 2;
+}
+
+.timeline-grid-cont {
+  display: grid;
+  grid-template-columns: 10% auto;
+  grid-template-rows: auto;
+  grid-gap: 0 0.5rem;
+  grid-auto-flow: column;
+}
