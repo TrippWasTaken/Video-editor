@@ -14,13 +14,17 @@ export const VideoPlayer = () => {
     state: { videoRef }
   } = useVideoRefState();
 
-  const callBackRef = useCallback(node => {
-    if (node) {
-      setVideoRef(node);
-    }
-  }, []);
+  const callBackRef = useCallback(
+    node => {
+      if (node !== videoRef) {
+        setVideoRef(node);
+      }
+    },
+    [videoRef]
+  );
 
   const play = () => {
+    console.log('ref in player', videoRef);
     if (videoRef) {
       videoRef.play();
     }

@@ -28,7 +28,6 @@ const Waveform = () => {
       ctx.fillStyle = 'rgb(255, 255, 255)';
       for (let i = 0; i < audioTrack.length; i++) {
         const pLine = audioTrack[i] * drawHeight;
-        const nLine = -(audioTrack[i] * drawHeight);
         ctx.fillRect(i, c.height / 2, 1, pLine + 1);
         ctx.fillRect(i, c.height / 2, 1, -pLine);
       }
@@ -37,10 +36,17 @@ const Waveform = () => {
 
   useEffect(() => {
     drawWaveForm();
-    console.log(audioTrack);
   }, [audioTrack]);
 
-  return <canvas ref={containerRef} className="bg-primary" />;
+  return (
+    <canvas
+      ref={containerRef}
+      className="bg-primary"
+      onClick={() => {
+        console.log('ref outta', videoRef);
+      }}
+    />
+  );
 };
 
 export default Waveform;
